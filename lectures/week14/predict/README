@@ -1,0 +1,8 @@
+This archive contains skeleton code for a prediction algorithm. 
+
+- `predict` is a Python script that outputs a prediction of each of the 10 counties.
+- `predict.R` is an equivalent R script. If you prefer to work in R, delete `predict` and rename `predict.R` to `predict`.
+- You may include other files (for example, trained model weights) into this archive for use in prediction. At running time,
+  we will unzip this archive and run `predict` in the unzipped directory, so you can use relative paths to refer to other files.
+
+See the assignment page for further information.

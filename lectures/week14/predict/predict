@@ -1,0 +1,44 @@
+#!/usr/bin/env python3
+
+import sys
+import csv
+
+
+def main():
+    # Check for valid input
+    if len(sys.argv) != 2:
+        print("Usage: ./predict {1, 24, 72}")
+        sys.exit(1)
+
+    try:
+        hours = int(sys.argv[1])
+    except ValueError:
+        print("Invalid input. Please provide an integer: 1, 24, or 72.")
+        sys.exit(1)
+
+    if hours not in [1, 24, 72]:
+        print("Invalid argument. Use 1, 24, or 72.")
+        sys.exit(1)
+
+    # Example predictions (replace with actual logic)
+    long_term_avgs = {
+        "06001": 52.2286465177398,
+        "08013": 54.5585864848109,
+        "12001": 41.6614987080103,
+        "18105": 39.88860598345,
+        "25017": 39.9160073037127,
+        "26161": 48.1587104773714,
+        "37063": 42.6643401015228,
+        "41039": 58.6314432989691,
+        "42027": 44.933044017359,
+        "55025": 47.7532216494845,
+    }
+    predictions = [{"fips": k, "pred": v} for k, v in long_term_avgs.items()]
+
+    # Print CSV output
+    print("fips,pred")
+    for prediction in predictions:
+        print(f"{prediction['fips']},{prediction['pred']}")
+
+if __name__ == "__main__":
+    main()
